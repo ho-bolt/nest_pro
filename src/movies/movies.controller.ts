@@ -1,6 +1,6 @@
 import { CreateMovieDto } from './dto/create-movie.dto';
 import { UpdateMovieDto } from './dto/update-movie.dto';
-import { Movie } from './entites/movie.eitity';
+import { Movie } from './entites/movie.entity';
 import { MoviesService } from './movies.service';
 import {
   Controller,
@@ -38,8 +38,9 @@ export class MoviesController {
     return this.moviesService.create(movieData);
   }
 
-  @Delete(':/id')
+  @Delete('/:id')
   remove(@Param('id') movieId: number) {
+    console.log('delete ', movieId);
     return this.moviesService.deleteOne(movieId);
   }
 
